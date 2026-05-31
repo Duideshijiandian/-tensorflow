@@ -7,9 +7,11 @@ tenser2 = tf.convert_to_tensor(Features)
 print(tenser1.shape)
 print(tenser2.shape)
 model = tf.keras.Sequential(
-    [tf.keras.layers.Dense(3, input_shape=(3,))])
+    [tf.keras.layers.Dense(4, input_shape=(3,)),
+     tf.keras.layers.ReLU(),
+     tf.keras.layers.Dense(3)])
 model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.1), loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True))
-a =model.fit(tenser2, tenser1, epochs=1000)
+a =model.fit(tenser2, tenser1, epochs=100)
 lable1 = [0]*5 + [1]*5 + [2]*5
 Features1 = [(random.uniform(0.7, 1), random.uniform(0, 0.2), random.uniform(0, 0.2)) for i in range(5)] + [(random.uniform(0.7, 1), random.uniform(0.7, 1), random.uniform(0, 0.2)) for i in range(5)] + [(random.uniform(0.7, 1), random.uniform(0.3, 0.6), random.uniform(0, 0.2)) for i in range(5)]
 tenser3 = tf.convert_to_tensor(lable1, dtype=tf.int64)
