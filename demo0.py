@@ -27,3 +27,4 @@ for i in range(15):
         count += 1
 print("准确率为：", count/15)
 print(a.history['loss'][-1])
+

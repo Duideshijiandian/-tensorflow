@@ -5,9 +5,9 @@ print(test_images.shape)
 train_images = train_images / 255.0
 test_images = test_images / 255.0
 model = tf.keras.Sequential(
-    [tf.keras.layers.Flatten(input_shape=(28, 28)),
-     tf.keras.layers.Dense(256),
-     tf.keras.layers.ReLU(),
+    [tf.keras.layers.Conv2D(filters=32, kernel_size=(3, 3), activation='relu', input_shape=(28, 28, 1)),
+     tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+     tf.keras.layers.Flatten(),
      tf.keras.layers.Dense(10)
      ])
 model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True))

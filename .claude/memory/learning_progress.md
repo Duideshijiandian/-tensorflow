@@ -1,6 +1,6 @@
 ---
 name: tensorflow-learning-progress
-description: "30-day TensorFlow learning plan, current progress, and next steps. Updated 2026-06-01 (Week 1 complete, 换设备重新配置环境)."
+description: "30-day TensorFlow learning plan, current progress, and next steps. Updated 2026-06-01 (Day 8 done: CNN卷积直觉, conv→pool→flatten→dense 可工作)."
 metadata: 
   node_type: memory
   type: project
@@ -34,8 +34,8 @@ metadata:
 
 | 天 | 主题 |
 |---|---|
-| 8 | 卷积直觉——"滑动窗口"替代"每个像素一个权重" |
-| 9 | 卷积层实战 + 特征图可视化 |
+| 8 | 卷积直觉——"滑动窗口"替代"每个像素一个权重" | ✅ |
+| 9 | 卷积层实战 + 特征图可视化 | 🔜 |
 | 10 | 池化 + 搭第一个 CNN |
 | 11 | CNN 训练 MNIST / CIFAR-10 |
 | 12 | 数据增强 |
