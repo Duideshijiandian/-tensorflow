@@ -1,4 +1,11 @@
 {
     "trae.tab.enableRename": false,
-    "trae.tab.enableAutoImport": false
+    "trae.tab.enableAutoImport": false,
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+    "python.terminal.activateEnvironment": true,
+    "git.ignoreLimitWarning": true,
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingModuleSource": "none",
+        "reportUnusedImport": "information"
+    }
 }
