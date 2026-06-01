@@ -9,7 +9,10 @@ print(tenser2.shape)
 model = tf.keras.Sequential(
     [tf.keras.layers.Dense(4, input_shape=(3,)),
      tf.keras.layers.ReLU(),
-     tf.keras.layers.Dense(3)])
+     tf.keras.layers.Dense(4),
+     tf.keras.layers.ReLU(),
+     tf.keras.layers.Dense(3)
+     ])
 model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.1), loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True))
 a =model.fit(tenser2, tenser1, epochs=100)
 lable1 = [0]*5 + [1]*5 + [2]*5
