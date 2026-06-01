@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /d/tensorflow自学 && git add -A && if ! git diff --cached --quiet; then git commit -m \"auto: session checkpoint $(date +%Y-%m-%d_%H:%M)\" && git push; fi",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

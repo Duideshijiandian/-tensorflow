@@ -1,6 +1,6 @@
 ---
 name: tensorflow-learning-progress
-description: "30-day TensorFlow learning plan, current progress, and next steps. Updated 2026-05-31 (Day 6 done, Week 1 complete!)."
+description: "30-day TensorFlow learning plan, current progress, and next steps. Updated 2026-06-01 (Week 1 complete, 换设备重新配置环境)."
 metadata: 
   node_type: memory
   type: project
@@ -13,7 +13,8 @@ metadata:
 - Python 基础有但生疏，TensorFlow 零基础
 - 每天投入 2-3 小时
 - AI 角色：费曼式导师（提问、类比、故意带小错引导推导，不给直接答案）
-- 环境：Python 3.12.10, TensorFlow 2.21.0 (CPU), NVIDIA RTX 5060 (8GB), CUDA 13.2
+- 环境：Python 3.12.4, TensorFlow 2.21.0 (CPU), NVIDIA RTX 4060 (8GB), CUDA 13.1
+- ⚠️ Windows 原生不支持 TF GPU，使用 CPU 训练
 
 ## 30 天学习路线
 

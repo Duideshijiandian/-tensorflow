@@ -6,7 +6,8 @@
 
 - Python 基础有但生疏，TensorFlow 零基础
 - 每天投入 2-3 小时
-- 环境：Python 3.12.10, TensorFlow 2.21.0 (CPU), NVIDIA RTX 5060 (8GB), CUDA 13.2
+- 环境：Python 3.12.4, TensorFlow 2.21.0 (CPU), NVIDIA RTX 4060 (8GB), CUDA 13.1
+- ⚠️ Windows 原生不支持 TF GPU，使用 CPU 训练（TF ≥2.11 限制）
 
 ## 教学方式（非常重要）
 
