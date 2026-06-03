@@ -1,6 +1,6 @@
 ---
 name: tensorflow-learning-progress
-description: "30-day TensorFlow learning plan, current progress, and next steps. Updated 2026-06-01 (Day 8 done: CNN卷积直觉, conv→pool→flatten→dense 可工作)."
+description: "30-day TensorFlow learning plan, current progress, and next steps. Updated 2026-06-04 (Day 13 done: 迁移学习入门, MobileNetV2 + CIFAR-10 特征提取+微调)."
 metadata: 
   node_type: memory
   type: project
@@ -35,12 +35,12 @@ metadata:
 | 天 | 主题 |
 |---|---|
 | 8 | 卷积直觉——"滑动窗口"替代"每个像素一个权重" | ✅ |
-| 9 | 卷积层实战 + 特征图可视化 | 🔜 |
-| 10 | 池化 + 搭第一个 CNN |
-| 11 | CNN 训练 MNIST / CIFAR-10 |
-| 12 | 数据增强 |
-| 13 | 迁移学习入门 |
-| 14 | 反思点：Dense vs CNN 思维变化 |
+| 9 | 卷积层实战 + 特征图可视化 | ✅ |
+| 10 | 池化 + 搭第一个 CNN | ✅（另一台电脑） |
+| 11 | CNN 训练 MNIST / CIFAR-10 | ✅（另一台电脑） |
+| 12 | 数据增强 | ✅（另一台电脑） |
+| 13 | 迁移学习入门 | ✅ |
+| 14 | 反思点：Dense vs CNN 思维变化 | 🔜 |
 
 ### 第三周：工程工具箱（Day 15-21）
 
