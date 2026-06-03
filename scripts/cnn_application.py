@@ -1,13 +1,13 @@
 import tensorflow as tf
 base = tf.keras.applications.MobileNetV2(weights='imagenet', include_top=False, input_shape=(96, 96, 3))
 base.trainable = False
-for layer in base.layers[:-14]:
+for layer in base.layers[-14:]:
     layer.trainable = True
 model = tf.keras.Sequential([base,
                              tf.keras.layers.GlobalAveragePooling2D(),
                              tf.keras.layers.Dense(256, activation='relu'),
                              tf.keras.layers.Dropout(0.5),
-                             tf.keras.layers.Dense(5, activation='softmax')])
+                             tf.keras.layers.Dense(10, activation='softmax')])
 model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.cifar10.load_data()
 train_images = tf.image.resize(train_images, (96, 96))
