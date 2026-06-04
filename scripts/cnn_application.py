@@ -13,6 +13,8 @@ base = tf.keras.applications.MobileNetV2(weights='imagenet', include_top=False, 
 base.trainable = False
 
 model = tf.keras.Sequential([
+    tf.keras.layers.RandomFlip('horizontal'),
+    tf.keras.layers.RandomRotation(0.1),
     base,
     tf.keras.layers.GlobalAveragePooling2D(),
     tf.keras.layers.Dense(256, activation='relu'),
