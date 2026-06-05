@@ -9,8 +9,8 @@ def preprocess(x, y):
 (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.cifar10.load_data()
 Dataset1 = tf.data.Dataset.from_tensor_slices((train_images, train_labels))
 Dataset2 = tf.data.Dataset.from_tensor_slices((test_images, test_labels))
-Dataset1 = Dataset1.map(preprocess).shuffle(buffer_size=5000).batch(64).prefetch(tf.data.AUTOTUNE)
-Dataset2 = Dataset2.map(preprocess).batch(64).prefetch(tf.data.AUTOTUNE)
+Dataset1 = Dataset1.map(preprocess, num_parallel_calls=tf.data.AUTOTUNE).shuffle(buffer_size=5000).batch(64).prefetch(tf.data.AUTOTUNE)
+Dataset2 = Dataset2.map(preprocess, num_parallel_calls=tf.data.AUTOTUNE).batch(64).prefetch(tf.data.AUTOTUNE)
 
 base = tf.keras.applications.MobileNetV2(input_shape=(96, 96, 3), include_top=False, weights='imagenet')
 base.trainable = False
