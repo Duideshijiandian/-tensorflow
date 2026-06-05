@@ -8,6 +8,7 @@ __pycache__/
 
 # IDE
 .idea/
+.vscode/settings.json
 
 # OS
 .DS_Store
