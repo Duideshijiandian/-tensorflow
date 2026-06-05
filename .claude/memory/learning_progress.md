@@ -39,8 +39,8 @@ metadata:
 | 10 | 池化 + 搭第一个 CNN | ✅ |
 | 11 | CNN 训练 CIFAR-10 + 系统性瓶颈诊断 | ✅ |
 | 12 | 数据增强 + BatchNormalization | ✅ |
-| 13 | 迁移学习入门 |
-| 14 | 反思点：Dense vs CNN 思维变化 |
+| 13 | 迁移学习入门 | ✅ |
+| 14 | 反思点：Dense vs CNN 思维变化 | ✅ |
 
 ### 第三周：工程工具箱（Day 15-21）
 
