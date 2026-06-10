@@ -14,5 +14,8 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# TensorBoard logs
+logs/
+
 # OCR data files (not project-related)
 *.traineddata
