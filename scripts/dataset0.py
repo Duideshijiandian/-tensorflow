@@ -1,6 +1,6 @@
 import tensorflow as tf
 import numpy as np
-
+import os
 def preprocess(x, y):
     x = tf.image.resize(x, (96, 96))
     x = tf.keras.applications.mobilenet_v2.preprocess_input(x)
@@ -15,13 +15,18 @@ Dataset2 = Dataset2.map(preprocess).batch(64).prefetch(tf.data.AUTOTUNE)
 earlystopping = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)
 tensorboard = tf.keras.callbacks.TensorBoard(log_dir='logs',
                                              update_freq='epoch',
-                                             histogram_freq=1,
+                                             histogram_freq=5,
                                              write_graph=True,
                                              write_images=True)
 
-base = tf.keras.applications.MobileNetV2(input_shape=(96, 96, 3), include_top=False, weights='imagenet')
-base.trainable = False
-model = tf.keras.Sequential([
+
+
+if os.path.exists('model.keras'):
+    model = tf.keras.models.load_model('model.keras')
+else:
+    base = tf.keras.applications.MobileNetV2(input_shape=(96, 96, 3), include_top=False, weights='imagenet')
+    base.trainable = False
+    model = tf.keras.Sequential([
                             tf.keras.layers.RandomFlip('horizontal'),
                             tf.keras.layers.RandomRotation(0.08),
                             base,
@@ -30,16 +35,14 @@ model = tf.keras.Sequential([
                             tf.keras.layers.Dropout(0.3),
                             tf.keras.layers.Dense(10, activation='softmax')
                             ])
-model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-
-model.fit(Dataset1, epochs=5, validation_data=Dataset2, callbacks=[earlystopping, tensorboard])
-
-base.trainable = False
-for layer in base.layers[-14:]:
-    layer.trainable = True
-model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.00005), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(Dataset1, epochs=5, validation_data=Dataset2, callbacks=[earlystopping, tensorboard])
-
+    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    model.fit(Dataset1, epochs=5, validation_data=Dataset2, callbacks=[earlystopping, tensorboard])
+    base.trainable = False
+    for layer in base.layers[-14:]:
+        layer.trainable = True
+    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.00005), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    model.fit(Dataset1, epochs=5, validation_data=Dataset2, callbacks=[earlystopping, tensorboard])
+    model.save('model.keras')
 b = model.predict(Dataset2)
 b = tf.argmax(b, axis=1)
 count = 0

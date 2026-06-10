@@ -17,5 +17,9 @@ Thumbs.db
 # TensorBoard logs
 logs/
 
+# Saved models
+*.h5
+*.keras
+
 # OCR data files (not project-related)
 *.traineddata
