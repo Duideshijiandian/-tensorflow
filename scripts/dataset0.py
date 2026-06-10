@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import os
+import datetime
 def preprocess(x, y):
     x = tf.image.resize(x, (96, 96))
     x = tf.keras.applications.mobilenet_v2.preprocess_input(x)
@@ -13,7 +14,8 @@ Dataset1 = Dataset1.map(preprocess).shuffle(buffer_size=5000).batch(64).prefetch
 Dataset2 = Dataset2.map(preprocess).batch(64).prefetch(tf.data.AUTOTUNE)
 
 earlystopping = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)
-tensorboard = tf.keras.callbacks.TensorBoard(log_dir='logs',
+log_dir = os.path.join('logs', datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
+tensorboard = tf.keras.callbacks.TensorBoard(log_dir=log_dir,
                                              update_freq='epoch',
                                              histogram_freq=5,
                                              write_graph=True,
